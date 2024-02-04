@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\HomePageSetting;
 use App\Models\Service;
 use App\Models\Slide;
+use App\Models\Work;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,6 +20,11 @@ class HomeController extends Controller
 
         $services = Service::all();
 
-        return view('home', compact(['company', 'slides', 'services']));
+        $homePageSettings = HomePageSetting::first();
+
+        $works = Work::where('is_active', true)
+            ->get();
+
+        return view('home', compact(['company', 'slides', 'services', 'homePageSettings', 'works']));
     }
 }
