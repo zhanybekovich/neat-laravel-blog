@@ -19,4 +19,9 @@ class Work extends Model
         'category_id',
         'work_categories',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(WorkCategory::class);
+    }
 }

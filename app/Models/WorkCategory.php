@@ -13,4 +13,9 @@ class WorkCategory extends Model
         'name',
         'description',
     ];
+
+    public function works()
+    {
+        return $this->hasMany(Work::class);
+    }
 }
