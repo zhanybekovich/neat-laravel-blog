@@ -31,7 +31,7 @@ class SlideResource extends Resource
                     Forms\Components\TextInput::make('title')
                         ->required()
                         ->maxLength(255),
-                    TiptapEditor::make('text'),
+                    Forms\Components\TextInput::make('text'),
                     Forms\Components\FileUpload::make('image')
                         ->image()
                         ->required(),
