@@ -24,4 +24,9 @@ class Work extends Model
     {
         return $this->belongsTo(WorkCategory::class);
     }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }

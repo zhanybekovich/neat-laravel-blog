@@ -14,4 +14,9 @@ class Service extends Model
         'description',
         'icon',
     ];
+
+    public function works()
+    {
+        return $this->belongsTo(Work::class);
+    }
 }

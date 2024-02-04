@@ -35,6 +35,10 @@ class WorkResource extends Resource
                         ->relationship(name: 'category', titleAttribute: 'name')
                         ->preload()
                         ->required(),
+                    Forms\Components\Select::make('services')
+                        ->relationship('services', 'name')
+                        ->multiple()
+                        ->preload(),
                     Forms\Components\TextInput::make('title')
                         ->required()
                         ->maxLength(255)
@@ -54,6 +58,7 @@ class WorkResource extends Resource
                     Forms\Components\TextInput::make('slug')
                         ->required()
                         ->maxLength(255),
+
                     Forms\Components\Textarea::make('description')
                         ->required()
                         ->maxLength(255),
