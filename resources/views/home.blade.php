@@ -4,7 +4,7 @@
         <div class="flexslider">
             <ul class="slides">
                 @foreach($slides as $slide)
-                    <li style="background-image: url(images/img_bg_1.jpg);">
+                    <li style="background-image: url('storage/{{$slide->image}}');">
                         <div class="overlay-gradient"></div>
                         <div class="container-fluid">
                             <div class="row">
@@ -60,6 +60,28 @@
 
                 </div>
             @endforeach
+        </div>
+    </div>
+
+    <div id="fh5co-counter" class="fh5co-counters">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center animate-box">
+                <p>{{ $homePageSettings->statistic_text }}</p>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="{{ \App\Models\Service::count() }}" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Services</span>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <span class="fh5co-counter js-counter" data-from="0" data-to="{{ \App\Models\Work::count() }}" data-speed="5000" data-refresh-interval="50"></span>
+                        <span class="fh5co-counter-label">Projects</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
