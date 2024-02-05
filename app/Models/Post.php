@@ -19,4 +19,9 @@ class Post extends Model
         'is_featured',
         'published_date',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }
