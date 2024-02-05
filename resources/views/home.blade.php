@@ -1,4 +1,4 @@
-<x-app-layout :meta-title="$company->name" :meta-description="$company->description" :meta-img="$company->logo">
+<x-app-layout :title="$company->name" :description="$company->description" :image="$company->logo"  :posts="$posts">
 
     <aside id="fh5co-hero">
         <div class="flexslider">
