@@ -1043,6 +1043,8 @@ input[type="text"] {
 .fh5co-social-icons {
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .fh5co-social-icons li {
@@ -1053,6 +1055,11 @@ input[type="text"] {
     display: inline-block;
     zoom: 1;
     *display: inline;
+}
+
+.fh5co-social-icons img {
+    width: 40px;
+    height: 40px;
 }
 
 .fh5co-social-icons li a {

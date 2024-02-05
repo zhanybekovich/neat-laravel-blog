@@ -7,6 +7,7 @@ use App\Models\HomePageSetting;
 use App\Models\Post;
 use App\Models\Service;
 use App\Models\Slide;
+use App\Models\SocialAccount;
 use App\Models\Work;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,8 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
+        $socials = SocialAccount::all();
+
         return view('home', compact([
             'company',
             'slides',
@@ -44,6 +47,7 @@ class HomeController extends Controller
             'works',
             'featured',
             'posts',
+            'socials'
             ]));
     }
 }
