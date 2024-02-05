@@ -10,7 +10,7 @@
                 </ul>
             </li>
         @else
-            <li class="active">
+            <li class="{{ request()->is($item->url) ? 'active' : '' }}">
                 <a href="{{ $item->url }}">{{ $item->text }}</a>
             </li>
         @endif
