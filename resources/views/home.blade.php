@@ -85,4 +85,38 @@
         </div>
     </div>
 
+    <div id="fh5co-blog" class="blog-flex">
+        <div class="featured-blog" style="background-image: url('/storage/{{$featured->image}}');">
+            <div class="desc-t">
+                <div class="desc-tc">
+                    <span class="featured-head">Featured Posts</span>
+                    <h3><a href="#">{{$featured->title}}</a></h3>
+                    <span><a href="#" class="read-button">Learn More</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="blog-entry fh5co-light-grey">
+            <div class="row animate-box">
+                <div class="col-md-12">
+                    <h2>Latest Posts</h2>
+                </div>
+            </div>
+            <div class="row">
+                @foreach($posts as $post)
+                    <div class="col-md-12 animate-box">
+                    <a href="#" class="blog-post">
+                        <span class="img" style="background-image: url('storage/{{$post->image}}');"></span>
+                        <div class="desc">
+                            <h3>{{ $post->title }}</h3>
+                            @foreach($post->categories as $category)
+                                <span class="cat">{{ $category->name }}</span>
+                            @endforeach
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
 </x-app-layout>

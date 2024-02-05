@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\HomePageSetting;
+use App\Models\Post;
 use App\Models\Service;
 use App\Models\Slide;
 use App\Models\Work;
@@ -25,6 +26,24 @@ class HomeController extends Controller
         $works = Work::where('is_active', true)
             ->get();
 
-        return view('home', compact(['company', 'slides', 'services', 'homePageSettings', 'works']));
+        $featured = Post::where('is_featured', true)
+            ->where('is_active', true)
+            ->latest()
+            ->first();
+
+        $posts = Post::where('is_active', true)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('home', compact([
+            'company',
+            'slides',
+            'services',
+            'homePageSettings',
+            'works',
+            'featured',
+            'posts',
+            ]));
     }
 }
