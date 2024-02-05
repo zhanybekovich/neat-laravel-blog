@@ -1,4 +1,10 @@
-<x-app-layout :title="$company->name" :description="$company->description" :image="$company->logo"  :posts="$posts" :socials="$socials">
+<x-app-layout
+    :title="$company->name"
+    :description="$company->description"
+    :image="$company->logo"
+    :posts="$posts"
+    :socials="$socials"
+    :menuItems="$menuItems">
 
     <aside id="fh5co-hero">
         <div class="flexslider">

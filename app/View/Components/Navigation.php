@@ -2,24 +2,21 @@
 
 namespace App\View\Components;
 
+use App\Models\MenuItem;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class AppLayout extends Component
+class Navigation extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public $title,
-        public $description,
-        public $image,
-        public $posts,
-        public $socials,
-        public $menuItems)
+
+    public $menuItems;
+    public function __construct()
     {
-        //
+        $this->menuItems = MenuItem::getMenu();
     }
 
     /**
@@ -27,6 +24,6 @@ class AppLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('layouts.app');
+        return view('components.navigation');
     }
 }

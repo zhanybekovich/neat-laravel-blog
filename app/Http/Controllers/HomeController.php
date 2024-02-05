@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\HomePageSetting;
+use App\Models\MenuItem;
 use App\Models\Post;
 use App\Models\Service;
 use App\Models\Slide;
@@ -39,6 +40,8 @@ class HomeController extends Controller
 
         $socials = SocialAccount::all();
 
+        $menuItems = MenuItem::all();
+
         return view('home', compact([
             'company',
             'slides',
@@ -47,7 +50,8 @@ class HomeController extends Controller
             'works',
             'featured',
             'posts',
-            'socials'
+            'socials',
+            'menuItems'
             ]));
     }
 }

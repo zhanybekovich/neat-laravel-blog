@@ -25,4 +25,15 @@ class MenuItem extends Model
     {
         return $this->hasMany(MenuItem::class);
     }
+
+    public static function getMenu ($parentId = null)
+    {
+        $menuItems = self::where('parent_id', $parentId)->get();
+
+        $menuItems->each(function ($menuItem) {
+            $menuItem->nestedItems = self::getMenu($menuItem->id);
+        });
+
+        return $menuItems->sortBy('order');
+    }
 }
